@@ -1,0 +1,11 @@
+{{#radio-button value="female" groupValue=gender}}
+  Female
+{{/radio-button}}
+
+{{#radio-button value="male" groupValue=gender}}
+  Male
+{{/radio-button}}
+
+<button {{action (action this.attrs.select-gender) gender}}>
+  Discover Your Prakriti
+</button>
