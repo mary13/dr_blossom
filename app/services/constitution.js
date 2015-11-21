@@ -1,16 +1,12 @@
 import Ember from 'ember';
 import questions from 'blossom/utils/dosha-questions';
 
-// need to bring questions into this session
-// keep track of their checked status
-
-
-// const doshaQuestions = Object.keys(questions).map(key => {
-//   const category = Ember.get(questions, key);
-//   return Object.keys(category).map(dosha => {
-//     return category[dosha].map(question => question.isSelected = false)
-//   })
-// })
+questions.forEach((q, idx) => {
+  Ember.merge(q, {
+    isSelected: false,
+    id: idx + 1
+  });
+});
 
 export default Ember.Service.extend({
   user: {},

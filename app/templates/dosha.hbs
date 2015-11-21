@@ -1,6 +1,21 @@
-{{link-to 'Physical' 'dosha.physical'}}
-{{link-to 'Mental' 'dosha.mental'}}
-{{link-to 'Digestive' 'dosha.digestive'}}
-{{link-to 'Results' 'dosha.results'}}
+<div class="row">
+  <div class="col s12 center-align">
+    {{#link-to 'dosha.physical'}}
+      <a class="waves-effect waves-light btn">Physical</a>
+    {{/link-to}}
+
+    {{#link-to 'dosha.mental'}}
+      <a class="waves-effect waves-light btn">Mental</a>
+    {{/link-to}}
+
+    {{#link-to 'dosha.digestive'}}
+      <a class="waves-effect waves-light btn">Digestive</a>
+    {{/link-to}}
+
+    {{#link-to 'dosha.results'}}
+      <a class="waves-effect waves-light btn">Results</a>
+    {{/link-to}}
+  </div>
+</div>
 
 {{outlet}}

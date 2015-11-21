@@ -1,10 +1,20 @@
 import Ember from 'ember';
-import questions from 'blossom/utils/dosha-questions';
+
+function groupByType(collection) {
+  return collection.reduce((memo, item) => {
+    const { type } = item;
+    if (!memo[type]) {
+      memo[type] = [];
+    }
+    memo[type].pushObject(item);
+    return memo;
+  }, {});
+}
 
 export default Ember.Route.extend({
   constitution: Ember.inject.service(),
   model() {
-    // console.log('questions', questions);
-    return Ember.get(questions, 'physical')
+    const questions = this.get('constitution.questions').filterBy('category', 'physical');
+    return groupByType(questions);
   }
 });

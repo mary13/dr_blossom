@@ -1,8 +1,8 @@
 import Ember from 'ember';
-import questions from 'blossom/utils/dosha-questions';
 
 export default Ember.Route.extend({
+  constitution: Ember.inject.service(),
   model() {
-    return Ember.get(questions, 'digestive')
+    return this.get('constitution.questions').filterBy('category', 'digestive');
   }
 });
