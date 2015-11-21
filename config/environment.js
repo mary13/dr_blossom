@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'dosha-test',
+    modulePrefix: 'blossom',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',

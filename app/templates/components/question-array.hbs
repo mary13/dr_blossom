@@ -1,0 +1,12 @@
+{{#each-in doshas as |dosha questions|}}
+  {{#multiselect-checkboxes options=questions labelProperty='text' selection=selectedQuestions as |label isSelected value|}}
+  <li>
+    <label>
+      {{input type="checkbox" checked=isSelected}}
+      {{label}}
+    </label>
+  </li>
+  {{/multiselect-checkboxes}}
+{{/each-in}}
+
+{{yield}}
