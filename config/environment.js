@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'blossom',
     environment: environment,
     baseURL: '/',
-    locationType: 'auto',
+    locationType: process.env.EMBER_CLI_ELECTRON ? 'hash' : 'auto',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -19,7 +19,17 @@ module.exports = function(environment) {
     },
     sassOptions: {
       includePaths: ['bower_components/materialize/sass']
-    }
+    },
+
+    contentSecurityPolicy: {
+     'default-src': "'none'",
+     'script-src': "'self' 'sha256-lvdVA4kDCCeUHqFP0ya/huuFYWUd1IFRDrpYyU7KPWs=' 'sha256-lEVH6eXKB6UpAXi/eeWHLOGyGEwf79P2EOwvs3a/BYo='",
+     'font-src': "'self'",
+     'connect-src': "'self'",
+     'img-src': "'self'",
+     'style-src': "'self' 'unsafe-inline'",
+     'media-src': "'self'"
+   }
   };
 
   if (environment === 'development') {

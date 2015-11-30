@@ -13,5 +13,8 @@ export default Ember.Service.extend({
   questions: questions,
   setGender(gender) {
     this.set('gender', gender);
+  },
+  calculateScore() {
+    return this.get('questions').filterBy('isSelected')
   }
 });
