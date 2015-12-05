@@ -6,10 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('dosha', function() {
-    this.route('mental');
-    this.route('physical');
-    this.route('digestive');
+  this.route('dosha', { path: 'dosha/:category' }, function() {
     this.route('results');
   });
 });

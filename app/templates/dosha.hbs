@@ -1,21 +1,26 @@
 <div class="row">
   <div class="col s12 center-align">
-    {{#link-to 'dosha.physical'}}
+    {{#link-to 'dosha' 'physical'}}
       <a class="waves-effect waves-light btn">Physical</a>
     {{/link-to}}
 
-    {{#link-to 'dosha.mental'}}
+    {{#link-to 'dosha' 'mental'}}
       <a class="waves-effect waves-light btn">Mental</a>
     {{/link-to}}
 
-    {{#link-to 'dosha.digestive'}}
+    {{#link-to 'dosha' 'digestive'}}
       <a class="waves-effect waves-light btn">Digestive</a>
     {{/link-to}}
 
-    {{#link-to 'dosha.results'}}
+    {{#link-to 'dosha' 'results'}}
       <a class="waves-effect waves-light btn">Results</a>
     {{/link-to}}
   </div>
 </div>
+
+{{#unless (eq category 'results')}}
+  {{dosha-category category=model}}
+{{/unless}}
+{{!-- {{dosha-results results=model}} --}}
 
 {{outlet}}
