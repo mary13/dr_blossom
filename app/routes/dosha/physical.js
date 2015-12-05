@@ -1,7 +1,6 @@
 import Ember from 'ember';
 import groupBy from 'blossom/utils/group-by';
 
-
 export default Ember.Route.extend({
   constitution: Ember.inject.service(),
   model() {
