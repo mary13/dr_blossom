@@ -6,9 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('dosha', { path: 'dosha/:category' }, function() {
-    this.route('results');
-  });
+  this.route('dosha', { path: 'dosha/:category' });
 });
 
 export default Router;

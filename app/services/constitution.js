@@ -11,10 +11,13 @@ questions.forEach((q, idx) => {
 export default Ember.Service.extend({
   user: {},
   questions: questions,
+
   setGender(gender) {
     this.set('gender', gender);
   },
+
   calculateScore() {
-    return this.get('questions').filterBy('isSelected')
+    const score = this.get('questions').filterBy('isSelected')
+    console.log(score);
   }
 });
