@@ -1,4 +1,12 @@
-{{#unless (eq category 'results') }}
+{{#if (eq category 'results')}}
+  <ul>
+    {{#each-in score.percentages as |dosha values|}}
+      <li>
+      {{dosha}}
+      {{values}} %
+      </li>
+    {{/each-in}}
+  </ul>
+{{else}}
   {{question-array questions=categoryQuestions}}
-{{/unless}}
-  results
+{{/if}}

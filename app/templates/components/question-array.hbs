@@ -1,19 +1,19 @@
 {{#each-in questions as |type typedQuestions|}}
-<div class="row">
-  <div class="col s12">
-    <div class="card">
-      <div class="card-content center-align">
-        <span class="card-title">{{type}}</span>
-        <div class="row">
-          {{#each typedQuestions as |question|}}
-            <div class="col s4 left-align">
-              {{input type="checkbox" checked=question.isSelected id=question.id}}
-              <label for={{question.id}}>{{question.text}}</label>
-            </div>
-          {{/each}}
+  <div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content center-align">
+          <span class="card-title">{{type}}</span>
+          <div class="row">
+            {{#each typedQuestions as |question|}}
+              <div class="col s4 left-align">
+                {{input type="checkbox" checked=question.isSelected id=question.id}}
+                <label for={{question.id}}>{{question.text}}</label>
+              </div>
+            {{/each}}
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 {{/each-in}}

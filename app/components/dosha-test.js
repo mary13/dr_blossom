@@ -8,7 +8,7 @@ export default Ember.Component.extend({
     if (category !== 'results') {
       this.set('categoryQuestions', this.buildQuestions(category));
     } else {
-      this.get('constitution').calculateScore()
+      this.set('score', this.get('constitution').calculateScore());
     }
   },
 
