@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
   actions: {
     selectGender(gender) {
       this.get('constitution').setGender(gender);
-      this.transitionToRoute('dosha.physical');
+      this.transitionToRoute('dosha', 'physical');
     }
   }
 });

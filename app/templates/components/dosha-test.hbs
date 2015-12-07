@@ -1,9 +1,9 @@
 {{#if (eq category 'results')}}
   <ul>
     {{#each-in score.percentages as |dosha values|}}
-      <li>
-      {{dosha}}
-      {{values}} %
+      <li class={{dosha}}>
+        {{dosha}}
+        <span class='score'>{{values}} %</span>
       </li>
     {{/each-in}}
   </ul>

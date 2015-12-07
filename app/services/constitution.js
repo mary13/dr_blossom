@@ -1,19 +1,22 @@
 import Ember from 'ember';
 import questions from 'blossom/utils/dosha-questions';
 
-questions.forEach((q, idx) => {
-  Ember.merge(q, {
-    isSelected: false,
-    id: idx + 1
-  });
-});
-
-const doshas = ['vata', 'pitta', 'kapha'];
-
 export default Ember.Service.extend({
   user: {},
-  questions: questions,
   flashMessages: Ember.inject.service(),
+
+  doshas: ['vata', 'pitta', 'kapha'],
+
+  questions: Ember.computed({
+    get() {
+      return questions.map((q, idx) => {
+        return Ember.merge(q, {
+          isSelected: false,
+          id: idx + 1
+        });
+      });
+    }
+  }),
 
   setGender(gender) {
     this.set('gender', gender);
@@ -25,6 +28,8 @@ export default Ember.Service.extend({
       Ember.get(this, 'flashMessages').warning('No questions answered yet!');
     }
 
+    let doshas = this.get('doshas');
+
     let grouped = doshas.reduce((memo, dosha) => {
       const answers = answered.filterBy('dosha', dosha);
       return Ember.merge(memo, {
@@ -33,9 +38,9 @@ export default Ember.Service.extend({
     }, {});
 
     let percentages = doshas.reduce((memo, dosha) => {
-      const ratio = (grouped[dosha].length / answered.length).toFixed(3);
+      const ratio = grouped[dosha].length / answered.length;
       return Ember.merge(memo, {
-        [dosha]: ratio * 100
+        [dosha]: (ratio * 100).toFixed(0)
       })
     }, {});
 

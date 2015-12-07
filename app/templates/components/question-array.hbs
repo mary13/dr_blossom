@@ -7,7 +7,12 @@
           <div class="row">
             {{#each typedQuestions as |question|}}
               <div class="col s4 left-align">
-                {{input type="checkbox" checked=question.isSelected id=question.id}}
+                {{input
+                  type="checkbox"
+                  checked=question.isSelected
+                  id=question.id
+                  class=question.dosha
+                }}
                 <label for={{question.id}}>{{question.text}}</label>
               </div>
             {{/each}}
