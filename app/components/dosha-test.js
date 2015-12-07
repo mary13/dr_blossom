@@ -6,13 +6,13 @@ export default Ember.Component.extend({
   didReceiveAttrs() {
     const category = this.get('category');
     if (category !== 'results') {
-      this.set('categoryQuestions', this.buildQuestions(category));
+      this.set('categoryQuestions', this.setupQuestions(category));
     } else {
       this.set('score', this.get('constitution').calculateScore());
     }
   },
 
-  buildQuestions(category) {
+  setupQuestions(category) {
     const questions = this.get('constitution.questions').filterBy('category', category);
     return groupBy(questions, 'type');
   }

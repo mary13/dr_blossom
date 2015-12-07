@@ -6,7 +6,7 @@ moduleForComponent('question-array', 'Integration | Component | question array',
 });
 
 test('it renders', function(assert) {
-  assert.expect(2);
+  assert.expect(1);
 
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
@@ -14,13 +14,4 @@ test('it renders', function(assert) {
   this.render(hbs`{{question-array}}`);
 
   assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#question-array}}
-      template block text
-    {{/question-array}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
 });

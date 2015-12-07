@@ -1,12 +1,14 @@
-{{#if (eq category 'results')}}
-  <ul>
-    {{#each-in score.percentages as |dosha values|}}
-      <li class={{dosha}}>
-        {{dosha}}
-        <span class='score'>{{values}} %</span>
-      </li>
-    {{/each-in}}
-  </ul>
+{{#if (and (eq category 'results') (not score.answeredLength)) class="qqq"}}
+  No questions answered yet!
+{{else if (eq category 'results')}}
+    <ul>
+      {{#each-in score.percentages as |dosha values|}}
+        <li class={{dosha}}>
+          {{dosha}}
+          <span class='score'>{{values}} %</span>
+        </li>
+      {{/each-in}}
+    </ul>
 {{else}}
   {{question-array questions=categoryQuestions}}
 {{/if}}

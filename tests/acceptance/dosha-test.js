@@ -25,3 +25,10 @@ function checkDosha(doshaType) {
 }
 
 ['kapha', 'vata', 'pitta'].forEach(checkDosha);
+
+test('no questions answered yet', function(assert) {
+  assert.expect(1);
+  visit('/dosha/results');
+  andThen(() => console.log(find(`body:contains('No questions answered yet!')`)))
+  andThen(() => assert.ok(find(`body:contains('No questions answered yet!')`)))
+});

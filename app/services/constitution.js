@@ -24,10 +24,6 @@ export default Ember.Service.extend({
 
   calculateScore() {
     let answered = this.get('questions').filterBy('isSelected');
-    if (!answered.length) {
-      Ember.get(this, 'flashMessages').warning('No questions answered yet!');
-    }
-
     let doshas = this.get('doshas');
 
     let grouped = doshas.reduce((memo, dosha) => {
@@ -44,6 +40,6 @@ export default Ember.Service.extend({
       })
     }, {});
 
-    return { grouped, percentages }
+    return { grouped, percentages, answeredLength: answered.length }
   }
 });

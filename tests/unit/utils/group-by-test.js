@@ -5,6 +5,21 @@ module('Unit | Utility | group by');
 
 // Replace this with your real tests.
 test('it works', function(assert) {
-  var result = groupBy();
-  assert.ok(result);
+  var result = groupBy([
+    {
+      id: 1,
+      type: 'dog'
+    },
+    {
+      id: 2,
+      type: 'dog'
+    },
+    {
+      id: 3,
+      type: 'cat'
+    }
+  ], 'type');
+
+  assert.ok(result.dog);
+  assert.ok(result.cat);
 });
