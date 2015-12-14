@@ -1,4 +1,4 @@
-{{#if (eq category 'results')}}
+{{#if (eq section 'results')}}
   {{#unless results.isAnswered}}
     No questions have been answered yet!
   {{else}}
@@ -12,5 +12,5 @@
     </ul>
   {{/unless}}
 {{else}}
-  {{question-array questions=categoryQuestions}}
+  {{question-array questions=sectionQuestions}}
 {{/if}}
