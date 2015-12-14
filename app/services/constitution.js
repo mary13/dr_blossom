@@ -37,9 +37,10 @@ export default Ember.Service.extend({
       const ratio = grouped[dosha].length / answered.length;
       return Ember.merge(memo, {
         [dosha]: (ratio * 100).toFixed(0)
-      })
+      });
     }, {});
 
-    return { grouped, percentages, answeredLength: answered.length }
+    // set these properties on the service itself
+    return { grouped, percentages, isAnswered: answered.length };
   }
 });

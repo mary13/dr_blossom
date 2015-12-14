@@ -1,14 +1,16 @@
-{{#if (and (eq category 'results') (not score.answeredLength)) class="qqq"}}
-  No questions answered yet!
-{{else if (eq category 'results')}}
+{{#if (eq category 'results')}}
+  {{#unless results.isAnswered}}
+    No questions have been answered yet!
+  {{else}}
     <ul>
-      {{#each-in score.percentages as |dosha values|}}
-        <li class={{dosha}}>
-          {{dosha}}
-          <span class='score'>{{values}} %</span>
-        </li>
+      {{#each-in results.percentages as |dosha values|}}
+      <li class={{dosha}}>
+        {{dosha}}
+        <span class='score'>{{values}} %</span>
+      </li>
       {{/each-in}}
     </ul>
+  {{/unless}}
 {{else}}
   {{question-array questions=categoryQuestions}}
 {{/if}}

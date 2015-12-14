@@ -5,7 +5,7 @@ module('Unit | Utility | group by');
 
 // Replace this with your real tests.
 test('it works', function(assert) {
-  var result = groupBy([
+  let result = groupBy([
     {
       id: 1,
       type: 'dog'

@@ -25,6 +25,16 @@ You will need the following things properly installed on your computer.
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
+Tools we are using:
+* [ember-cli-materialize](https://github.com/mike-north/ember-cli-materialize)
+* [ember responsive](https://github.com/freshbooks/ember-responsive)
+* [ember suave](https://github.com/dockyard/ember-suave)
+* [ember gestures](https://github.com/runspired/ember-gestures)
+* [liquid fire](https://github.com/ef4/liquid-fire)
+* [ember-cli-autoprefixer](https://github.com/kimroen/ember-cli-autoprefixer)
+* [e3](https://github.com/RavelLaw/e3)
+
+
 ### Code Generators
 
 Make use of the many generators for code, try `ember help generate` for more details
@@ -50,4 +60,3 @@ Specify what it takes to deploy your app.
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-

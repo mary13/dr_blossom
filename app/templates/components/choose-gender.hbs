@@ -1,10 +1,7 @@
-{{#radio-button value="female" groupValue=gender}}
-  Female
-{{/radio-button}}
-
-{{#radio-button value="male" groupValue=gender}}
-  Male
-{{/radio-button}}
+{{#md-radios selection=gender}}
+  <p>{{md-radio value='female' name='Female'}}</p>
+  <p>{{md-radio value='male' name='Male'}}</p>
+{{/md-radios}}
 
 <button {{action select-gender gender}}>
   Discover Your Prakriti

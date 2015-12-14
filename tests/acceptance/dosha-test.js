@@ -8,18 +8,18 @@ function checkDosha(doshaType) {
     assert.expect(1);
 
     visit('/dosha/physical');
-    click(`.${doshaType}`)
+    click(`.${doshaType}`);
 
     visit('/dosha/mental');
-    click(`.${doshaType}`)
+    click(`.${doshaType}`);
 
     visit('/dosha/digestive');
-    click(`.${doshaType}`)
+    click(`.${doshaType}`);
 
     visit('/dosha/results');
 
     andThen(function() {
-      return assert.equal(find(`li.${doshaType} .score`).text(), '100 %', 'scores 100%')
+      return assert.equal(find(`li.${doshaType} .score`).text(), '100 %', 'scores 100%');
     });
   });
 }
@@ -29,6 +29,5 @@ function checkDosha(doshaType) {
 test('no questions answered yet', function(assert) {
   assert.expect(1);
   visit('/dosha/results');
-  andThen(() => console.log(find(`body:contains('No questions answered yet!')`)))
-  andThen(() => assert.ok(find(`body:contains('No questions answered yet!')`)))
+  andThen(() => assert.ok(find(`body:contains('No questions answered yet!')`)));
 });
