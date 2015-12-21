@@ -2,7 +2,66 @@
   <h5>
     {{type}}:
   </h5>
-  {{#each answers as |answer|}}
-    {{answer.dosha}}
-  {{/each}}
+    {{#e3-container type='svg' height=svgSize width=svgSize as |context|}}
+      {{#each answers as |answer|}}
+
+        {{#e3-group context as |grpCtx|}}
+
+          {{#if (eq answer.dosha 'kapha')}}
+            {{e3-shape/rectangle grpCtx
+              x=diagonal
+              y=diagonal
+              height=linear
+              width=linear
+              fill='none'
+              stroke='green'
+              stroke-width=strokeWidth
+            }}
+          {{/if}}
+
+          {{#if (eq answer.dosha 'pitta')}}
+            {{e3-shape/circle grpCtx
+              x=linear
+              y=linear
+              radius=diagonal
+              fill='none'
+              stroke='blue'
+              stroke-width=strokeWidth
+            }}
+          {{/if}}
+
+          {{#if (eq answer.dosha 'vata')}}
+
+            {{e3-shape/line grpCtx
+              x1=diagonal
+              y1=hypotenuse
+              x2=linear
+              y2=diagonal
+              stroke='red'
+              stroke-width=strokeWidth
+            }}
+
+            {{e3-shape/line grpCtx
+              x1=linear
+              y1=diagonal
+              x2=hypotenuse
+              y2=hypotenuse
+              stroke='red'
+              stroke-width=strokeWidth
+            }}
+
+            {{e3-shape/line grpCtx
+              x1=diagonal
+              y1=hypotenuse
+              x2=hypotenuse
+              y2=hypotenuse
+              stroke='red'
+              stroke-width=strokeWidth
+            }}
+          {{/if}}
+
+        {{/e3-group}}
+
+      {{/each}}
+    {{/e3-container}}
 {{/each-in}}

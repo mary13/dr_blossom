@@ -28,7 +28,7 @@ export default Ember.Service.extend({
     return groupBy(questions, 'type');
   },
 
-  calculateScore() {
+  getResults() {
     let answered = this.get('questions').filterBy('isSelected');
     let doshas = this.get('doshas');
 
@@ -46,9 +46,7 @@ export default Ember.Service.extend({
       });
     }, {});
 
-    // set these properties on the service itself
     return {
-      grouped,
       percentages,
       answersByType: groupBy(answered, 'type'),
       isAnswered: answered.length

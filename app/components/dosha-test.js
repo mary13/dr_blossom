@@ -8,7 +8,7 @@ export default Ember.Component.extend({
       let questions = this.get('constitution').sectionQuestions(section);
       this.set('sectionQuestions', questions);
     } else {
-      this.set('results', this.get('constitution').calculateScore());
+      this.set('results', this.get('constitution').getResults());
     }
   }
 });
