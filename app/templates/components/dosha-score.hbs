@@ -1,0 +1,8 @@
+<ul>
+  {{#each-in results as |dosha values|}}
+  <li class={{dosha}}>
+    {{dosha}}
+    <span class='score'>{{values}} %</span>
+  </li>
+  {{/each-in}}
+</ul>

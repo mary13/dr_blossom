@@ -2,14 +2,8 @@
   {{#unless results.isAnswered}}
     No questions have been answered yet!
   {{else}}
-    <ul>
-      {{#each-in results.percentages as |dosha values|}}
-      <li class={{dosha}}>
-        {{dosha}}
-        <span class='score'>{{values}} %</span>
-      </li>
-      {{/each-in}}
-    </ul>
+    {{dosha-score results=results.percentages}}
+    {{dosha-visualizer results=results.answersByType}}
   {{/unless}}
 {{else}}
   {{question-array questions=sectionQuestions}}

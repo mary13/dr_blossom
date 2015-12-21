@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import questions from 'blossom/utils/dosha-questions';
+import groupBy from 'blossom/utils/group-by';
 
 export default Ember.Service.extend({
   user: {},
@@ -22,6 +23,11 @@ export default Ember.Service.extend({
     this.set('gender', gender);
   },
 
+  sectionQuestions(section) {
+    const questions = this.get('questions').filterBy('section', section);
+    return groupBy(questions, 'type');
+  },
+
   calculateScore() {
     let answered = this.get('questions').filterBy('isSelected');
     let doshas = this.get('doshas');
@@ -41,6 +47,11 @@ export default Ember.Service.extend({
     }, {});
 
     // set these properties on the service itself
-    return { grouped, percentages, isAnswered: answered.length };
+    return {
+      grouped,
+      percentages,
+      answersByType: groupBy(answered, 'type'),
+      isAnswered: answered.length
+    };
   }
 });

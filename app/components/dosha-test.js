@@ -1,19 +1,14 @@
 import Ember from 'ember';
-import groupBy from 'blossom/utils/group-by';
 
 export default Ember.Component.extend({
   constitution: Ember.inject.service(),
   didReceiveAttrs() {
     const section = this.get('section');
     if (section !== 'results') {
-      this.set('sectionQuestions', this.setupQuestions(section));
+      let questions = this.get('constitution').sectionQuestions(section);
+      this.set('sectionQuestions', questions);
     } else {
       this.set('results', this.get('constitution').calculateScore());
     }
-  },
-
-  setupQuestions(category) {
-    const questions = this.get('constitution.questions').filterBy('category', category);
-    return groupBy(questions, 'type');
   }
 });

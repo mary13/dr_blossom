@@ -1,0 +1,8 @@
+{{#each-in results as |type answers|}}
+  <h5>
+    {{type}}:
+  </h5>
+  {{#each answers as |answer|}}
+    {{answer.dosha}}
+  {{/each}}
+{{/each-in}}
