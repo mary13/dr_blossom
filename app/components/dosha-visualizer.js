@@ -12,7 +12,7 @@ export default Ember.Component.extend({
   }),
 
   hypotenuse: Ember.computed(function() {
-    return this.get('linear') * 1.5
+    return this.get('linear') * 1.5;
   }),
 
   strokeWidth: 2

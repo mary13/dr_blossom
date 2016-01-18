@@ -2,6 +2,13 @@ import Ember from 'ember';
 import questions from 'blossom/utils/dosha-questions';
 import groupBy from 'blossom/utils/group-by';
 
+function initializeQuestion(q, idx) {
+  return Ember.merge(q, {
+    isSelected: false,
+    id: idx + 1
+  });
+}
+
 export default Ember.Service.extend({
   user: {},
   flashMessages: Ember.inject.service(),
@@ -10,12 +17,10 @@ export default Ember.Service.extend({
 
   questions: Ember.computed({
     get() {
-      return questions.map((q, idx) => {
-        return Ember.merge(q, {
-          isSelected: false,
-          id: idx + 1
-        });
-      });
+      return questions.map(initializeQuestion);
+    },
+    set(key, value) {
+      return value;
     }
   }),
 
@@ -51,5 +56,9 @@ export default Ember.Service.extend({
       answersByType: groupBy(answered, 'type'),
       isAnswered: answered.length
     };
+  },
+
+  resetAnswers() {
+    this.set('questions', this.get('questions').map(initializeQuestion));
   }
 });

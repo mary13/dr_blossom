@@ -10,5 +10,11 @@ export default Ember.Component.extend({
     } else {
       this.set('results', this.get('constitution').getResults());
     }
+  },
+  actions: {
+    resetAnswers() {
+      this.get('constitution').resetAnswers();
+      this.set('results', this.get('constitution').getResults());
+    }
   }
 });

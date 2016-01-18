@@ -19,7 +19,7 @@ function checkDosha(doshaType) {
     visit('/dosha/results');
 
     andThen(function() {
-      return assert.equal(find(`li.${doshaType} .score`).text(), '100 %', 'scores 100%');
+      return assert.equal(find(`.${doshaType}-score`).text(), '100 %', 'scores 100%');
     });
   });
 }

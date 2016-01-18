@@ -3,8 +3,14 @@
     No questions have been answered yet!
   {{else}}
     {{dosha-score results=results.percentages}}
-    {{dosha-visualizer results=results.answersByType}}
+    {{!-- {{dosha-visualizer results=results.answersByType}} --}}
+    {{md-btn
+      text='Reset Answers'
+    	action='resetAnswers'
+    	class='indigo'
+    }}
   {{/unless}}
 {{else}}
+  Please choose any answer that applies to you
   {{question-array questions=sectionQuestions}}
 {{/if}}
