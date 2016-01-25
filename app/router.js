@@ -6,9 +6,9 @@ let Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('prakriti');
-  this.route('vikriti');
-  this.route('dosha', { path: 'dosha/:section' });
+  this.route('prakriti', { path: 'prakriti/:section' });
+  this.route('vikriti', { path: 'vikriti/:section' });
+  this.route('select-gender');
   this.route('error-page', { path: '/*wildcard' });
 });
 

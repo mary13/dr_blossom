@@ -1,4 +1,35 @@
+<div class="row">
+  <div class="col s12 center-align">
+    {{#link-to test-type 'physical' class="waves-effect waves-light btn"}}
+      Physical
+    {{/link-to}}
+
+    {{#link-to test-type 'mental' class="waves-effect waves-light btn"}}
+      Mental
+    {{/link-to}}
+
+    {{#link-to test-type 'digestive' class="waves-effect waves-light btn"}}
+      Digestive
+    {{/link-to}}
+
+    {{#if (and (eq test-type 'vikriti') (eq (get constitution 'gender') 'female'))}}
+      {{#link-to test-type 'female' class="waves-effect waves-light btn"}}
+        Feminine
+      {{/link-to}}
+    {{/if}}
+
+    {{#link-to test-type 'results' class="waves-effect waves-light btn"}}
+      Results
+    {{/link-to}}
+  </div>
+</div>
+
 {{#if (eq section 'results')}}
+
+  <h5>
+    Your {{test-type}} results:
+  </h5>
+
   {{#unless results.isAnswered}}
     No questions have been answered yet!
   {{else}}

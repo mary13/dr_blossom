@@ -1,6 +1,7 @@
 import Ember from 'ember';
-import questions from 'blossom/utils/dosha-questions';
 import groupBy from 'blossom/utils/group-by';
+import prakriti from 'blossom/utils/prakriti-questions';
+import vikriti from 'blossom/utils/vikriti-questions';
 
 function initializeQuestion(q, idx) {
   return Ember.merge(q, {
@@ -15,9 +16,18 @@ export default Ember.Service.extend({
 
   doshas: ['vata', 'pitta', 'kapha'],
 
-  questions: Ember.computed({
+  prakriti: Ember.computed({
     get() {
-      return questions.map(initializeQuestion);
+      return prakriti.map(initializeQuestion);
+    },
+    set(key, value) {
+      return value;
+    }
+  }),
+
+  vikriti: Ember.computed({
+    get() {
+      return vikriti.map(initializeQuestion);
     },
     set(key, value) {
       return value;
@@ -28,13 +38,13 @@ export default Ember.Service.extend({
     this.set('gender', gender);
   },
 
-  sectionQuestions(section) {
-    const questions = this.get('questions').filterBy('section', section);
+  sectionQuestions(testType, section) {
+    const questions = this.get(testType).filterBy('section', section);
     return groupBy(questions, 'type');
   },
 
-  getResults() {
-    let answered = this.get('questions').filterBy('isSelected');
+  getResults(testType) {
+    let answered = this.get(testType).filterBy('isSelected');
     let doshas = this.get('doshas');
 
     let grouped = doshas.reduce((memo, dosha) => {
@@ -58,7 +68,7 @@ export default Ember.Service.extend({
     };
   },
 
-  resetAnswers() {
-    this.set('questions', this.get('questions').map(initializeQuestion));
+  resetAnswers(testType) {
+    this.set(testType, this.get(testType).map(initializeQuestion));
   }
 });
