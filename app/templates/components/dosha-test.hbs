@@ -24,24 +24,30 @@
   </div>
 </div>
 
-{{#if (eq section 'results')}}
+<div class="row">
+  <div class="col s12">
 
-  <h5>
-    Your {{test-type}} results:
-  </h5>
+    {{#liquid-if (eq section 'results')}}
 
-  {{#unless results.isAnswered}}
-    No questions have been answered yet!
-  {{else}}
-    {{dosha-score results=results.percentages}}
-    {{!-- {{dosha-visualizer results=results.answersByType}} --}}
-    {{md-btn
-      text='Reset Answers'
-    	action='resetAnswers'
-    	class='indigo'
-    }}
-  {{/unless}}
-{{else}}
-  Please choose any answer that applies to you
-  {{question-array questions=sectionQuestions}}
-{{/if}}
+      <h5>
+        Your {{test-type}} results:
+      </h5>
+
+      {{#liquid-unless results.isAnswered}}
+        No questions have been answered yet!
+      {{else}}
+        {{dosha-score results=results.percentages}}
+        {{!-- {{dosha-visualizer results=results.answersByType}} --}}
+        {{md-btn
+          text='Reset Answers'
+          action='resetAnswers'
+          class='indigo'
+        }}
+      {{/liquid-unless}}
+    {{else}}
+      Please choose any answer that applies to you
+      {{question-array questions=sectionQuestions}}
+    {{/liquid-if}}
+
+  </div>
+</div>

@@ -27,8 +27,11 @@ You will need the following things properly installed on your computer.
 
 Tools we are using:
 * [ember-cli-materialize](https://github.com/mike-north/ember-cli-materialize)
+
+More documentation here:
+http://mike.works/ember-cli-materialize/
+
 * [ember responsive](https://github.com/freshbooks/ember-responsive)
-* [ember suave](https://github.com/dockyard/ember-suave)
 * [ember gestures](https://github.com/runspired/ember-gestures)
 * [liquid fire](https://github.com/ef4/liquid-fire)
 * [ember-cli-autoprefixer](https://github.com/kimroen/ember-cli-autoprefixer)
