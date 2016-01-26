@@ -10,7 +10,7 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });" + EOL + EOL +
 
-  this.render(hbs`{{dosha-test}}`);
+  this.render(hbs`{{dosha-test test-type='prakriti'}}`);
 
   assert.ok(this.$().text().trim());
 });

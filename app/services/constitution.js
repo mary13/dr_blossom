@@ -10,29 +10,24 @@ function initializeQuestion(q, idx) {
   });
 }
 
+function buildQuestions(questions) {
+  return Ember.computed({
+    get() {
+      return questions.map(initializeQuestion);
+    },
+    set(key, value) {
+      return value;
+    }
+  });
+}
+
 export default Ember.Service.extend({
   user: {},
   flashMessages: Ember.inject.service(),
 
+  prakriti: buildQuestions(prakriti),
+  vikriti: buildQuestions(vikriti),
   doshas: ['vata', 'pitta', 'kapha'],
-
-  prakriti: Ember.computed({
-    get() {
-      return prakriti.map(initializeQuestion);
-    },
-    set(key, value) {
-      return value;
-    }
-  }),
-
-  vikriti: Ember.computed({
-    get() {
-      return vikriti.map(initializeQuestion);
-    },
-    set(key, value) {
-      return value;
-    }
-  }),
 
   setGender(gender) {
     this.set('gender', gender);

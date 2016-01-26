@@ -13,8 +13,8 @@
     {{/link-to}}
 
     {{#if (and (eq test-type 'vikriti') (eq (get constitution 'gender') 'female'))}}
-      {{#link-to test-type 'female' class="waves-effect waves-light btn"}}
-        Feminine
+      {{#link-to test-type 'reproductive' class="waves-effect waves-light btn"}}
+        Reproductive
       {{/link-to}}
     {{/if}}
 
@@ -29,15 +29,26 @@
 
     {{#liquid-if (eq section 'results')}}
 
-      <h5>
-        Your {{test-type}} results:
-      </h5>
-
       {{#liquid-unless results.isAnswered}}
         No questions have been answered yet!
       {{else}}
+        <h5>Your {{test-type}} results:</h5>
         {{dosha-score results=results.percentages}}
+
         {{!-- {{dosha-visualizer results=results.answersByType}} --}}
+
+        {{md-btn
+          text='Email'
+          action='emailAnswers'
+          class='indigo'
+        }}
+
+        {{md-btn
+          text='Print'
+          action='printAnswers'
+          class='indigo'
+        }}
+
         {{md-btn
           text='Reset Answers'
           action='resetAnswers'
@@ -45,7 +56,11 @@
         }}
       {{/liquid-unless}}
     {{else}}
-      Please choose any answer that applies to you
+      {{#if (eq test-type 'vikriti')}}
+        <div>
+          Lately I have:
+        </div>
+      {{/if}}
       {{question-array questions=sectionQuestions}}
     {{/liquid-if}}
 

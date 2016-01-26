@@ -13,6 +13,13 @@ export default Ember.Component.extend({
     }
   },
   actions: {
+    printAnswers() {
+      const w = window.open();
+      w.document.write(this.$().html());
+      w.print();
+      w.close();
+    },
+
     resetAnswers() {
       const testType = this.get('test-type');
       this.get('constitution').resetAnswers(testType);
