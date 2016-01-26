@@ -147,31 +147,31 @@ export default [
     dosha: 'pitta',
     section: 'physical',
     type: '',
-    text: 'Having skin problems that burn and/or itch such as rashes,acne, and fever blisters. '
+    text: 'been having skin problems that burn and/or itch, such as rashes, acne, and fever blisters.'
   },
   {
     dosha: 'pitta',
     section: 'physical',
     type: '',
-    text: 'Inflammation exists in my joints or elsewhere in my body'
+    text: 'had inflammation in my joints or elsewhere in my body.'
   },
   {
     dosha: 'pitta',
     section: 'physical',
     type: '',
-    text: 'I become overheated very easily '
+    text: 'been getting overheated very easily.'
   },
   {
     dosha: 'pitta',
     section: 'physical',
     type: '',
-    text: 'having bloodshot, itchy, or burning eyes.'
+    text: 'been having bloodshot, itchy, or burning eyes.'
   },
   {
     dosha: 'pitta',
     section: 'physical',
     type: '',
-    text: 'I wake in the night overheated and/or I have night sweats'
+    text: 'been waking up in the night overheated and/or I have night sweats.'
   },
   {
     dosha: 'pitta',
@@ -183,13 +183,13 @@ export default [
     dosha: 'pitta',
     section: 'physical',
     type: '',
-    text: 'experiencing stronger or sour body odor'
+    text: 'been experiencing stronger or sour body odor'
   },
   {
     dosha: 'pitta',
     section: 'physical',
     type: '',
-    text: 'experiencing a sour or metallic taste in my mouth and/or bad breath'
+    text: 'been experiencing a sour or metallic taste in my mouth and/or bad breath'
   },
   {
     dosha: 'pitta',
