@@ -30,10 +30,21 @@
     {{#liquid-if (eq section 'results')}}
 
       {{#liquid-unless results.isAnswered}}
-        No {{test-type}} questions have been answered yet!
+        <p>
+          No {{test-type}} questions have been answered yet!
+        </p>
+        <p>
+          To answer questions about the condition of your {{test-type}}, click on the headings above.
+        </p>
       {{else}}
         <h5>Your {{test-type}} results:</h5>
         {{dosha-score results=results.percentages}}
+
+        {{md-btn
+          text=resetText
+          action='resetAnswers'
+          class='indigo'
+        }}
 
         {{!-- {{dosha-visualizer results=results.answersByType}} --}}
 
@@ -55,6 +66,12 @@
       {{else}}
         <h5>Your {{otherTestType}} results:</h5>
         {{dosha-score results=otherResults.percentages}}
+
+        {{md-btn
+          text=otherResetText
+          action='resetOtherTest'
+          class='indigo'
+        }}
       {{/liquid-unless}}
 
 
@@ -62,12 +79,6 @@
         {{md-btn
           text='Print'
           action='printAnswers'
-          class='indigo'
-        }}
-
-        {{md-btn
-          text=resetText
-          action='resetAnswers'
           class='indigo'
         }}
 

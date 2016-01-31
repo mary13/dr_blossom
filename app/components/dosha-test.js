@@ -7,6 +7,7 @@ export default Ember.Component.extend({
     const testType = this.get('test-type');
     const section = this.get('section');
     this.set('resetText', `Reset ${testType} questions`);
+    this.set('otherResetText', `Reset ${this.get('otherTestType')} questions`);
     if (section !== 'results') {
       let questions = this.get('constitution').sectionQuestions(testType, section);
       this.set('sectionQuestions', questions);
@@ -37,6 +38,12 @@ export default Ember.Component.extend({
       const testType = this.get('test-type');
       this.get('constitution').resetAnswers(testType);
       this.set('results', this.get('constitution').getResults(testType));
+    },
+
+    resetOtherTest() {
+      const other = this.get('otherTestType');
+      this.get('constitution').resetAnswers(other);
+      this.set('otherResults', this.get('constitution').getResults(other));
     }
   }
 });
