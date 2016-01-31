@@ -30,19 +30,35 @@
     {{#liquid-if (eq section 'results')}}
 
       {{#liquid-unless results.isAnswered}}
-        No questions have been answered yet!
+        No {{test-type}} questions have been answered yet!
       {{else}}
         <h5>Your {{test-type}} results:</h5>
         {{dosha-score results=results.percentages}}
 
         {{!-- {{dosha-visualizer results=results.answersByType}} --}}
 
-        {{!-- {{md-btn
-          text='Email'
-          action='emailAnswers'
-          class='indigo'
-        }} --}}
+      {{/liquid-unless}}
 
+
+      {{#liquid-unless otherResults.isAnswered}}
+
+        {{#if (eq otherTestType 'vikriti')}}
+          {{#link-to 'select-gender' class="waves-effect waves-light btn"}}
+            Complete Vikriti Test
+          {{/link-to}}
+        {{else}}
+          {{#link-to 'prakriti' 'physical' class="waves-effect waves-light btn"}}
+            Complete Prakiti Test
+          {{/link-to}}
+        {{/if}}
+
+      {{else}}
+        <h5>Your {{otherTestType}} results:</h5>
+        {{dosha-score results=otherResults.percentages}}
+      {{/liquid-unless}}
+
+
+      {{#liquid-if results.isAnswered}}
         {{md-btn
           text='Print'
           action='printAnswers'
@@ -50,11 +66,21 @@
         }}
 
         {{md-btn
-          text='Reset Answers'
+          text=resetText
           action='resetAnswers'
           class='indigo'
         }}
-      {{/liquid-unless}}
+
+        <a href="https://clients.mindbodyonline.com/classic/home?studioid=25037" class="indigo ember-view waves-light waves-effect btn">
+          Make An Appointment
+        </a>
+
+        <a href="mailto:info@doctorblossom.com" class="indigo ember-view waves-light waves-effect btn">
+          Email Dr. Blossom
+        </a>
+
+      {{/liquid-if}}
+
     {{else}}
       {{#if (eq test-type 'vikriti')}}
         <div>
