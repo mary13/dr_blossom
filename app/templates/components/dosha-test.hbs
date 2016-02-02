@@ -1,10 +1,13 @@
 <div class="row">
   <div class="col s12 center-align">
     {{#link-to test-type 'physical' class="waves-effect waves-light btn"}}
+      {{!-- dont forget to add tagName="li" --}}
+      {{!-- {{link-to 'Physical' test-type 'physical'}} --}}
       Physical
     {{/link-to}}
 
     {{#link-to test-type 'mental' class="waves-effect waves-light btn"}}
+      {{!-- {{link-to 'Mental' test-type 'mental'}} --}}
       Mental
     {{/link-to}}
 
@@ -37,19 +40,14 @@
           To answer questions about the condition of your {{test-type}}, click on the headings above.
         </p>
       {{else}}
-        <h5>Your {{test-type}} results:</h5>
-        {{dosha-score results=results.percentages}}
-
-        {{md-btn
-          text=resetText
-          action='resetAnswers'
-          class='indigo'
+        {{dosha-score
+          testType=test-type
+          results=results
+          resetTest=(action 'resetAnswers' test-type)
         }}
 
         {{!-- {{dosha-visualizer results=results.answersByType}} --}}
-
       {{/liquid-unless}}
-
 
       {{#liquid-unless otherResults.isAnswered}}
 
@@ -64,13 +62,10 @@
         {{/if}}
 
       {{else}}
-        <h5>Your {{otherTestType}} results:</h5>
-        {{dosha-score results=otherResults.percentages}}
-
-        {{md-btn
-          text=otherResetText
-          action='resetOtherTest'
-          class='indigo'
+        {{dosha-score
+          testType=otherTestType
+          results=otherResults
+          resetTest=(action 'resetAnswers' otherTestType)
         }}
       {{/liquid-unless}}
 

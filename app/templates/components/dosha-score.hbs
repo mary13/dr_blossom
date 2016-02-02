@@ -1,12 +1,20 @@
+<h5>Your {{testType}} results:</h5>
+
 <div class="row">
-  {{#each-in results as |dosha values|}}
+  {{#each-in results.percentages as |dosha values|}}
     <div class="col s4 center-align">
       <div class="card blue-grey lighten-5">
         <div class="card-content">
           <span class="card-title">{{dosha}}</span>
-          <p class="{{dosha}}-score">{{values}} %</p>
+          <p class="{{testType}} {{dosha}}-score">{{values}} %</p>
         </div>
       </div>
     </div>
   {{/each-in}}
 </div>
+
+{{md-btn
+  text=(concat 'Reset ' testType ' answers')
+  action=resetTest
+  class='indigo'
+}}

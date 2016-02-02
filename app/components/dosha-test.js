@@ -6,25 +6,16 @@ export default Ember.Component.extend({
   didReceiveAttrs() {
     const testType = this.get('test-type');
     const section = this.get('section');
-    this.set('resetText', `Reset ${testType} questions`);
-    this.set('otherResetText', `Reset ${this.get('otherTestType')} questions`);
+    const [ otherTestType ] = ['vikriti', 'prakriti'].without(testType);
+    this.set('otherTestType', otherTestType);
     if (section !== 'results') {
       let questions = this.get('constitution').sectionQuestions(testType, section);
       this.set('sectionQuestions', questions);
     } else {
       this.set('results', this.get('constitution').getResults(testType));
+      this.set('otherResults', this.get('constitution').getResults(otherTestType));
     }
   },
-
-  otherTestType: Ember.computed('test-type', function() {
-    const testType = this.get('test-type');
-    return testType === 'vikriti' ? 'prakriti' : 'vikriti';
-  }),
-
-  otherResults: Ember.computed('otherTestType', function() {
-    return this.get('constitution').getResults(this.get('otherTestType'))
-  }),
-
 
   actions: {
     printAnswers() {
@@ -34,16 +25,17 @@ export default Ember.Component.extend({
       w.close();
     },
 
-    resetAnswers() {
-      const testType = this.get('test-type');
-      this.get('constitution').resetAnswers(testType);
-      this.set('results', this.get('constitution').getResults(testType));
+    resetAnswers(test) {
+      this.get('constitution').resetAnswers(test);
+      const primaryTestType = this.get('test-type');
+      const [ otherTestType ] = ['vikriti', 'prakriti'].without(primaryTestType);
+      // reset this test
+      // or reset other test
+      if (primaryTestType === test) {
+        this.set('results', this.get('constitution').getResults(test));
+      } else {
+        this.set('otherResults', this.get('constitution').getResults(otherTestType));
+      }
     },
-
-    resetOtherTest() {
-      const other = this.get('otherTestType');
-      this.get('constitution').resetAnswers(other);
-      this.set('otherResults', this.get('constitution').getResults(other));
-    }
   }
 });
