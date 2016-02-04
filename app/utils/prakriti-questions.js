@@ -242,12 +242,6 @@ export default [
     text: 'I rarely, if ever, experience constipation.'
   },
   {
-    dosha: 'pitta',
-    section: 'digestive',
-    type: 'craving',
-    text: 'I enjoy spicy food and intense flavors even if it causes digestive difficulty for me.'
-  },
-  {
     dosha: 'kapha',
     section: 'digestive',
     type: 'craving',
