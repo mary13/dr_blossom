@@ -3,29 +3,56 @@ import moduleForAcceptance from 'blossom/tests/helpers/module-for-acceptance';
 
 moduleForAcceptance('Acceptance | dosha');
 
-function checkDosha(testType, doshaType) {
-  return test(`checks pure ${doshaType}`, function(assert) {
+function checkPrakriti(doshaType) {
+  return test(`checks pure ${doshaType} in prakriti test`, function(assert) {
     assert.expect(1);
 
-    visit(`/${testType}/physical`);
+    visit(`/prakriti/physical`);
     click(`.${doshaType}`);
 
-    visit(`/${testType}/mental`);
+    visit(`/prakriti/mental`);
     click(`.${doshaType}`);
 
-    visit(`/${testType}/digestive`);
+    visit(`/prakriti/digestive`);
     click(`.${doshaType}`);
 
-    visit(`/${testType}/results`);
+    visit(`/prakriti/results`);
 
     andThen(function() {
-      return assert.equal(find(`.${doshaType}-score`).text(), '100 %', `scores 100% for ${doshaType} in ${testType} test`);
+      return assert.equal(find(`.${doshaType}-score`).text(), '100 %', `scores 100% for ${doshaType} in prakriti test`);
     });
   });
 }
 
-['kapha', 'vata', 'pitta'].forEach(d => checkDosha('prakriti', d));
-['kapha', 'vata', 'pitta'].forEach(d => checkDosha('vikriti', d));
+['kapha', 'vata', 'pitta'].forEach(d => checkPrakriti(d));
+
+test(`checks vikriti test`, function(assert) {
+  assert.expect(3);
+
+  visit(`/vikriti/physical`);
+  click(`.kapha`);
+  click(`.pitta`);
+  click(`.vata`);
+
+  visit(`/vikriti/mental`);
+  click(`.kapha`);
+  click(`.pitta`);
+  click(`.vata`);
+
+  visit(`/vikriti/digestive`);
+  click(`.kapha`);
+  click(`.pitta`);
+  click(`.vata`);
+
+  visit(`/vikriti/results`);
+
+  andThen(function() {
+    assert.equal(find(`.kapha-score`).text(), '100 %', `scores 100% for kapha in vikriti test`);
+    assert.equal(find(`.pitta-score`).text(), '100 %', `scores 100% for pitta in vikriti test`);
+    assert.equal(find(`.vata-score`).text(), '100 %', `scores 100% for vata in vikriti test`);
+  });
+});
+
 
 test('no questions answered yet', function(assert) {
   assert.expect(1);

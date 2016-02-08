@@ -1,5 +1,15 @@
 Please choose your gender
 
-{{choose-gender
+{{#md-radios selection=gender}}
+  <p>{{md-radio value='female' name='Female'}}</p>
+  <p>{{md-radio value='male' name='Male'}}</p>
+{{/md-radios}}
+
+<button {{action 'selectGender' gender}} class="btn">
+  Discover Your Vikriti
+</button>
+
+
+{{!-- {{choose-gender
   select-gender=(route-action 'selectGender')
-}}
+}} --}}
