@@ -24,6 +24,7 @@ You will need the following things properly installed on your computer.
 
 ## Running / Development
 
+* `cd dr_blossom`
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 

@@ -38,8 +38,8 @@ export default Ember.Service.extend({
     return groupBy(questions, 'type');
   },
 
-  getResults(testType) {
-    let answered = this.get(testType).filterBy('isSelected');
+  prakritiResults() {
+    let answered = this.get('prakriti').filterBy('isSelected');
     let doshas = this.get('doshas');
 
     let grouped = doshas.reduce((memo, dosha) => {
@@ -61,6 +61,36 @@ export default Ember.Service.extend({
       answersByType: groupBy(answered, 'type'),
       isAnswered: answered.length
     };
+  },
+
+  vikritiResults() {
+    let vikritiQuestions = this.get('vikriti');
+    let answered = vikritiQuestions.filterBy('isSelected');
+    let doshas = this.get('doshas');
+
+    let grouped = doshas.reduce((memo, dosha) => {
+      const answers = answered.filterBy('dosha', dosha);
+      return Ember.merge(memo, {
+        [dosha]: answers
+      });
+    }, {});
+
+    let gender = this.get('gender');
+    let allDoshaQuestions = gender === 'female' ? vikritiQuestions : vikritiQuestions.rejectBy('section', 'reproductive');
+
+    let percentages = doshas.reduce((memo, dosha) => {
+      let ratio = grouped[dosha].length / allDoshaQuestions.length;
+      return Ember.merge(memo, {
+        [dosha]: (ratio * 100).toFixed(0)
+      });
+    }, {});
+
+    return {
+      percentages,
+      // answersByType: groupBy(answered, 'type'),
+      isAnswered: answered.length
+    };
+
   },
 
   resetAnswers(testType) {
