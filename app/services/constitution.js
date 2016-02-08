@@ -79,7 +79,7 @@ export default Ember.Service.extend({
     let allDoshaQuestions = gender === 'female' ? vikritiQuestions : vikritiQuestions.rejectBy('section', 'reproductive');
 
     let percentages = doshas.reduce((memo, dosha) => {
-      let ratio = grouped[dosha].length / allDoshaQuestions.length;
+      let ratio = grouped[dosha].length / allDoshaQuestions.filterBy('dosha', dosha).length;
       return Ember.merge(memo, {
         [dosha]: (ratio * 100).toFixed(0)
       });
@@ -87,7 +87,6 @@ export default Ember.Service.extend({
 
     return {
       percentages,
-      // answersByType: groupBy(answered, 'type'),
       isAnswered: answered.length
     };
 
