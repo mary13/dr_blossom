@@ -12,11 +12,8 @@ export default Ember.Component.extend({
       let questions = this.get('constitution').sectionQuestions(testType, section);
       this.set('sectionQuestions', questions);
     } else {
-      let r = this.get('constitution')[`${testType}Results`]();
-      let o = this.get('constitution')[`${otherTestType}Results`]();
-
-      this.set('results', r);
-      this.set('otherResults', o);
+      this.set('results', this.get('constitution')[`${testType}Results`]());
+      this.set('otherResults', this.get('constitution')[`${otherTestType}Results`]());
     }
   },
 
@@ -35,9 +32,9 @@ export default Ember.Component.extend({
       // reset this test
       // or reset other test
       if (primaryTestType === test) {
-        this.set('results', this.get('constitution').getResults(test));
+        this.set('results', this.get('constitution')[`${primaryTestType}Results`]());
       } else {
-        this.set('otherResults', this.get('constitution').getResults(otherTestType));
+        this.set('otherResults', this.get('constitution')[`${otherTestType}Results`]());
       }
     },
   }
