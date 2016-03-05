@@ -2,3 +2,20 @@
 @import 'variables';
 @import 'materialize';
 @import 'ember-cli-materialize';
+
+body {
+  font-family: "Courier New", Courier, monospace;
+}
+
+a {
+  font-family: "Arial", Arial, monospace;
+}
+
+.brand-logo {
+  background-image: url('/assets/images/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-width: 100%;
+  min-height: 90%;
+  margin-top: 1%;
+}
