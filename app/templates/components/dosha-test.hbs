@@ -1,8 +1,6 @@
 <div class="row">
   <div class="col s12 center-align">
     {{#link-to test-type 'physical' class="waves-effect waves-light btn"}}
-      {{!-- dont forget to add tagName="li" --}}
-      {{!-- {{link-to 'Physical' test-type 'physical'}} --}}
       Physical
     {{/link-to}}
 
@@ -20,10 +18,6 @@
         Reproductive
       {{/link-to}}
     {{/if}}
-
-    {{#link-to test-type 'results' class="waves-effect waves-light btn"}}
-      Results
-    {{/link-to}}
   </div>
 </div>
 
@@ -106,5 +100,8 @@
   {{/if}}
   {{question-array questions=sectionQuestions}}
 
+  {{#link-to test-type 'results' class="waves-effect waves-light btn"}}
+    Get Your Results
+  {{/link-to}}
 
 {{/liquid-if}}

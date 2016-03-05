@@ -15,5 +15,5 @@ export default Ember.Component.extend({
     return this.get('linear') * 1.5;
   }),
 
-  strokeWidth: 2
+  strokeWidth: 3
 });

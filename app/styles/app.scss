@@ -8,14 +8,14 @@ body {
 }
 
 a {
-  font-family: "Arial", Arial, monospace;
+  font-family: "Arial", 'Helvetica Neue', sans-serif;;
 }
 
 .brand-logo {
   background-image: url('/assets/images/logo.png');
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: center;
   min-width: 100%;
-  min-height: 90%;
-  margin-top: 1%;
+  min-height: 100%;
 }
