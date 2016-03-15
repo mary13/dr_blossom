@@ -264,11 +264,5 @@ export default [
     section: 'digestive',
     type: 'weight',
     text: 'I tend to gain weight and have a hard time losing it once it\'s on.'
-  },
-  {
-    dosha: 'kapha',
-    section: 'digestive',
-    type: 'craving',
-    text: 'I love food and when stressed, crave heavy foods like ice cream or cheese.'
   }
 ];
