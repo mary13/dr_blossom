@@ -36,12 +36,6 @@ export default Ember.Component.extend({
       } else {
         this.set('otherResults', this.get('constitution')[`${otherTestType}Results`]());
       }
-    },
-
-    transitionPath(path) {
-      let testType = this.get('test-type');
-      this.get('router').transitionTo(testType, path);
     }
-
   }
 });

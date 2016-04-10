@@ -13,8 +13,13 @@
   {{/each-in}}
 </div>
 
-{{md-btn
-  text=(concat 'Reset ' testType ' answers')
-  action=resetTest
-  class='red lighten-1'
-}}
+
+<div class="row">
+  <div class="col s12 center-align">
+    {{md-btn
+      text=(concat 'Reset ' testType ' answers')
+      action=resetTest
+      class='red lighten-1'
+    }}
+  </div>
+</div>
