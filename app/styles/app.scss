@@ -19,3 +19,18 @@ a {
   min-width: 100%;
   min-height: 100%;
 }
+
+li.md-fixed-btn .btn-floating {
+  overflow: visible;
+}
+
+.fab-link-text {
+	position: absolute;
+	right: 64px;
+	padding:0px 0.5rem;
+	text-align: right;
+	background-color: #323232;
+	border-radius: 2px;
+	color: #FFF;
+	width:auto;
+}

@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row hide-on-small-only">
   <div class="col s12 center-align">
     {{#link-to test-type 'physical' class="waves-effect waves-light btn"}}
       Physical
@@ -18,8 +18,78 @@
         Reproductive
       {{/link-to}}
     {{/if}}
+
+    {{#link-to test-type 'results' class="waves-effect waves-light btn red"}}
+      Results
+    {{/link-to}}
   </div>
 </div>
+
+{{#md-fixed-btns
+	class="hide-on-med-and-up click-to-toggle"
+	btnIcon="mdi-content-send"
+	btnClass="btn-large lime darken-2"
+}}
+
+	{{#md-fixed-btn
+		btnClass="indigo"
+		btnIcon="mdi-action-class"
+    action=(action 'transitionPath' 'physical')
+	}}
+    {{link-to '' test-type 'physical'}}
+    <span class='fab-link-text'>
+      Physical
+    </span>
+  {{/md-fixed-btn}}
+
+	{{#md-fixed-btn
+		btnClass="green"
+		btnIcon="mdi-content-grade"
+    action=(action 'transitionPath' 'mental')
+	}}
+    {{link-to '' test-type 'mental'}}
+    <span class='fab-link-text'>
+      Mental
+    </span>
+  {{/md-fixed-btn}}
+
+	{{#md-fixed-btn
+		btnClass="green"
+		btnIcon="mdi-action-redeem"
+    action=(action 'transitionPath' 'digestive')
+  }}
+    {{link-to '' test-type 'digestive'}}
+    <span class='fab-link-text'>
+      Digestive
+    </span>
+  {{/md-fixed-btn}}
+
+  {{#if (and (eq test-type 'vikriti') (eq (get constitution 'gender') 'female'))}}
+    {{#md-fixed-btn
+      btnClass="green"
+      btnIcon="mdi-action-redeem"
+      action=(action 'transitionPath' 'reproductive')
+    }}
+      {{link-to '' test-type 'reproductive'}}
+      <span class='fab-link-text'>
+        Reproductive
+      </span>
+    {{/md-fixed-btn}}
+  {{/if}}
+
+	{{#md-fixed-btn
+		btnClass="red"
+		btnIcon="mdi-alert-warning"
+    action=(action 'transitionPath' 'results')
+	}}
+    {{link-to '' test-type 'results'}}
+    <span class='fab-link-text'>
+      Results
+    </span>
+  {{/md-fixed-btn}}
+
+
+{{/md-fixed-btns}}
 
 {{#liquid-if (eq section 'results')}}
 
@@ -91,7 +161,6 @@
 </div>
 
 
-
 {{else}}
   {{#if (eq test-type 'vikriti')}}
     <div>
@@ -99,9 +168,5 @@
     </div>
   {{/if}}
   {{question-array questions=sectionQuestions}}
-
-  {{#link-to test-type 'results' class="waves-effect waves-light btn"}}
-    Get Your Results
-  {{/link-to}}
 
 {{/liquid-if}}
