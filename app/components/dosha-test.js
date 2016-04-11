@@ -18,8 +18,7 @@ export default Ember.Component.extend({
   },
 
   willDestroyElement() {
-    this.set('results', null);
-    this.set('otherResults', null);
+    this.set('otherTestType', null);
   },
 
   actions: {
