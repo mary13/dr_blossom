@@ -2,10 +2,18 @@
 @import 'variables';
 @import 'materialize';
 @import 'ember-cli-materialize';
-
+@import "font-awesome";
 // body {
 //   font-family: "Courier New", Courier, monospace;
 // }
+
+.row {
+  margin-bottom: 10px;
+}
+
+.results-actions {
+  margin-top: 10px;
+}
 
 a {
   font-family: "Arial", 'Helvetica Neue', sans-serif;;

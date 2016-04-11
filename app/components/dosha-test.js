@@ -17,6 +17,11 @@ export default Ember.Component.extend({
     }
   },
 
+  willDestroyElement() {
+    this.set('results', null);
+    this.set('otherResults', null);
+  },
+
   actions: {
     printAnswers() {
       const w = window.open();

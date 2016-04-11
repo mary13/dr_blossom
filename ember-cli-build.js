@@ -7,13 +7,11 @@ module.exports = function(defaults) {
     sassOptions: {
       includePaths: ['bower_components/materialize/sass']
     },
-  });
 
-  app.import(app.bowerDirectory + '/materialize/dist/font/material-design-icons/Material-Design-Icons.eot', { destDir: 'font/material-design-icons' });
-  app.import(app.bowerDirectory + '/materialize/dist/font/material-design-icons/Material-Design-Icons.ttf', { destDir: 'font/material-design-icons' });
-  app.import(app.bowerDirectory + '/materialize/dist/font/material-design-icons/Material-Design-Icons.svg', { destDir: 'font/material-design-icons' });
-  app.import(app.bowerDirectory + '/materialize/dist/font/material-design-icons/Material-Design-Icons.woff', { destDir: 'font/material-design-icons' });
-  app.import(app.bowerDirectory + '/materialize/dist/font/material-design-icons/Material-Design-Icons.woff2', { destDir: 'font/material-design-icons' });
+    emberCliFontAwesome: {
+      useScss: true,
+    }
+  });
 
   return app.toTree();
 };

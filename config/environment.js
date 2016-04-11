@@ -18,7 +18,6 @@ module.exports = function(environment) {
       // when it is created
     },
 
-
     contentSecurityPolicy: {
      'default-src': "'none'",
      'script-src': "'self' 'unsafe-eval' 'sha256-lvdVA4kDCCeUHqFP0ya/huuFYWUd1IFRDrpYyU7KPWs=' 'sha256-lEVH6eXKB6UpAXi/eeWHLOGyGEwf79P2EOwvs3a/BYo=' 'sha256-37u63EBe1EibDZ3vZNr6mxLepqlY1CQw+4N89HrzP9s='",

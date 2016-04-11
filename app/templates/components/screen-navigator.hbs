@@ -19,7 +19,7 @@
       {{/link-to}}
     {{/if}}
 
-    {{#link-to test-type 'results' class="waves-effect waves-light btn red"}}
+    {{#link-to test-type 'results' class="waves-effect waves-light btn orange accent-2"}}
       Results
     {{/link-to}}
   </div>
@@ -27,13 +27,13 @@
 
 {{#md-fixed-btns
 	class="hide-on-med-and-up click-to-toggle"
-	btnIcon="mdi-content-send"
-	btnClass="btn-large lime darken-2"
+	btnIcon="fa fa-question"
+	btnClass="btn-large light-green darken-2"
 }}
 
 	{{#md-fixed-btn
-		btnClass="indigo"
-		btnIcon="mdi-action-class"
+		btnClass="light-green"
+		btnIcon="fa fa-heart"
     action=(action 'transitionPath' 'physical')
 	}}
     {{link-to '' test-type 'physical'}}
@@ -43,8 +43,8 @@
   {{/md-fixed-btn}}
 
 	{{#md-fixed-btn
-		btnClass="green"
-		btnIcon="mdi-content-grade"
+		btnClass="light-green darken-2"
+		btnIcon="fa fa-sun-o"
     action=(action 'transitionPath' 'mental')
 	}}
     {{link-to '' test-type 'mental'}}
@@ -54,8 +54,8 @@
   {{/md-fixed-btn}}
 
 	{{#md-fixed-btn
-		btnClass="green"
-		btnIcon="mdi-action-redeem"
+		btnClass="light-green"
+		btnIcon="fa fa-cutlery"
     action=(action 'transitionPath' 'digestive')
   }}
     {{link-to '' test-type 'digestive'}}
@@ -66,8 +66,8 @@
 
   {{#if (and (eq test-type 'vikriti') (eq gender 'female'))}}
     {{#md-fixed-btn
-      btnClass="green"
-      btnIcon="mdi-action-redeem"
+      btnClass="light-green"
+      btnIcon="fa fa-venus"
       action=(action 'transitionPath' 'reproductive')
     }}
       {{link-to '' test-type 'reproductive'}}
@@ -78,8 +78,8 @@
   {{/if}}
 
 	{{#md-fixed-btn
-		btnClass="red"
-		btnIcon="mdi-alert-warning"
+		btnClass="light-green orange accent-2"
+		btnIcon="fa fa-tasks"
     action=(action 'transitionPath' 'results')
 	}}
     {{link-to '' test-type 'results'}}

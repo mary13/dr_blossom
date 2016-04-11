@@ -11,7 +11,7 @@
       <p class='hide-on-small-only'>
         To answer questions about the condition of your {{test-type}}, click on the headings above.
       </p>
-      <p class='hide-on-medium-up'>
+      <p class='hide-on-med-and-up'>
         To answer questions about the condition of your {{test-type}}, navigate to a section using the button on the lower right.
       </p>
     {{else}}
@@ -54,22 +54,26 @@
   </div>
 </div>
 
+<div class="divider">
+</div>
+
 {{#liquid-if results.isAnswered}}
   <div class="row">
-    <div class="col m4 s12">
+    <div class="col m4 s12 center-align">
+      <a href="https://clients.mindbodyonline.com/classic/home?studioid=25037" class="indigo ember-view waves-light waves-effect btn results-actions">
+        Schedule Appointment
+      </a>
+    </div>
+
+    <div class="col m4 s12 center-align">
       {{md-btn
         text='Print'
         action='printAnswers'
-        class='indigo'
+        class='indigo results-actions'
       }}
     </div>
-    <div class="col m4 s12">
-      <a href="https://clients.mindbodyonline.com/classic/home?studioid=25037" class="indigo ember-view waves-light waves-effect btn">
-        Make An Appointment
-      </a>
-    </div>
-    <div class="col m4 s12">
-      <a href="mailto:info@doctorblossom.com" class="indigo ember-view waves-light waves-effect btn">
+    <div class="col m4 s12 center-align">
+      <a href="mailto:info@doctorblossom.com" class="indigo ember-view waves-light waves-effect btn results-actions">
         Email Dr. Blossom
       </a>
     </div>
@@ -79,13 +83,11 @@
 
 {{else}}
   {{#if (eq test-type 'vikriti')}}
-    <div>
-      Lately I have:
-    </div>
+    <div>Lately I have</div>
   {{/if}}
   {{question-array questions=sectionQuestions}}
 
-  <p class="center">
+  <p class="center hide-on-med-and-up">
     Choose another section
   </p>
 
