@@ -82,8 +82,11 @@
 
 
 {{else}}
+  <h5 class="hide-on-med-and-up center-align">
+    {{section}} questions
+  </h5>
   {{#if (eq test-type 'vikriti')}}
-    <div>Lately I have</div>
+    <em>Lately I have</em>
   {{/if}}
   {{question-array questions=sectionQuestions}}
 
